@@ -22,3 +22,5 @@ be other sources that are used for both theory and source code.
    - [ ] use Java
    - [ ] use C++
    - [ ] try other programming languages
+
+- [ ] implement Rooted Trees
