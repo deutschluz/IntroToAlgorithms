@@ -1,1 +1,1 @@
-# Stack Implementation using an Array
+# Stack Implementation using an Array Data Structure
