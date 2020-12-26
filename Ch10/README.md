@@ -10,3 +10,5 @@ This Chapter focuses on Elementary Data Structures.
 - [ ] implement the end of chapter solutions
    - [ ] implement solutions in C++
    - [ ] implement solutions in java
+- [ ] implement Stack DS
+   - [ ] use Java, C++, maybe other programming languages
