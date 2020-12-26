@@ -9,11 +9,16 @@ be other sources that are used for both theory and source code.
 
 # TODO
 
-- [ ] implement the end of chapter solutions
+- [ ] implement the end of chapter solutions for CLRS
    - [ ] implement solutions in C++
    - [ ] implement solutions in java
 
 - [ ] implement Stack DS
+   - [ ] use Java
+   - [ ] use C++
+   - [ ] try other programming languages
+
+- [ ] implement List DS
    - [ ] use Java
    - [ ] use C++
    - [ ] try other programming languages
