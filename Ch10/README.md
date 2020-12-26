@@ -2,6 +2,8 @@
 corresponding to chapter 10 of Intro to algos by Cormen.
 
 This Chapter focuses on Elementary Data Structures.
+Several sources are using to compile this chapter. The theory is provided by CLRS while some of the source code is provided by "Schaum's Outlines." There may
+be other sources that are used for both theory and source code.
 
 # Problems coming soon
 
