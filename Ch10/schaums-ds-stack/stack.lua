@@ -5,13 +5,19 @@
 
 Stack={
   top=1 -- pointer var to top of stack
-  seq={} 
+  seq={} --
 } --declare Stack Class Object
 
---Stack.new takes an optional list and pushes them into the
-function Stack.new(l)
-  l  = l or {}
-  
+--Stack.new takes an optional list and pushes its contents
+--onto the stack
+function Stack.new()
+  seq={}
+  s={Stack.top,seq}
+  setmetatable(s,self)
+  self.__index=self
+  return s
+end
+
 --for managing the size of the stack, we can
 -- use the '#' operator which calculates the lengths
 -- tables in lua
@@ -22,6 +28,7 @@ end
 function Stack.isEmpty()
   return Stack.size() == 0
 end
+
 --lua has a 'table.remove' function which can emulate a stack.pop
 --which takes 2 args a table and position
 function Stack.pop()
