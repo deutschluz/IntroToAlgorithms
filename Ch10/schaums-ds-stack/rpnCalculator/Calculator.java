@@ -1,4 +1,4 @@
-package stackDataStructure.rpnCalculator;
+package stackDataStructure.rpnCalculator.schaums;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -9,6 +9,8 @@ public class Calculator {
 		Deque<String> stack = new ArrayDeque<String>();
 		Scanner in = new Scanner(System.in);
 		System.out.println("RPN Calculator Program, Enter a postfix expression: " );
+		System.out.println();
+		System.out.println("Enter 'q' or 'Q' to terminate the program:");
 		while(true) {
 			String input = in.nextLine();
 			char ch = input.charAt(0);
@@ -33,3 +35,28 @@ public class Calculator {
 		}
 	}
 }
+
+/*
+ * SAMPLE OUTPUT
+ * RPN Calculator Program, Enter a postfix expression: 
+3
+4
+5
++
+	4.00 + 5.00 = 9.00
+*
+	3.00 * 9.00 = 27.00
+10
+/
+	27.00 / 10.00 = 2.70
+1
+-
+	2.70 - 1.00 = 1.70
+q
+Program quits!
+
+ * 
+ * 
+ * 
+ * 
+ */
