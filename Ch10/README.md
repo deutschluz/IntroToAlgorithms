@@ -16,6 +16,7 @@ be other sources that are used for both theory and source code.
 - [ ] implement Stack DS
    - [ ] use Java
    - [ ] use C++
+   - [ ] use Ocaml
    - [ ] try other programming languages
 
 - [ ] implement List DS
