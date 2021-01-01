@@ -9,7 +9,7 @@ public class HeapSort {
 		}//end for
 
 		//remove elements from the heap
-		for (int i = list.length - 1; i>= 9; i--) {
+		for (int i = list.length - 1; i>= 0; i--) {
 			list[i] = heap.remove();
 		}
 	}
