@@ -1,10 +1,20 @@
 dbg=require("debugger")
 
+function arrayInit(Arr)
+  for i in ipairs(Arr) do
+    Arr[i]=0
+  end
+  return Arr
+end
+
+
 function merge(Arr,low,mid,hi)
   local Leftlim = mid - low + 1
   local Rightlim = hi - mid
   local Left={}
+  Left=arrayInit(Left)
   local Right = {}
+  Right=arrayInit(Right)
   for i = 1,Leftlim do
     Left[i]=Arr[low + i -1]
   end
@@ -45,7 +55,7 @@ end
 function main()
   a={7,3,8,10,21,2,1,4}
   printArray(a)
-  mergeSort(a,0,#a)
+  mergeSort(a,1,#a)
   printArray(a)
 end
 main()
