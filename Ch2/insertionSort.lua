@@ -27,18 +27,17 @@ function insertionSort(a,comp)
     end
 end
  
+function printArray(Arr)
+    for i=1,#Arr do
+	io.write(Arr[i]," ")
+    end 
+    io.write("\n")
+end
 function main ()
     local a = {4, 65, 2, -31, 0, 99, 2, 83, 782, 1}
-    print("input for insertionsort ")
-    for i = 1,#a do
-       io.write( a[i]," ")
-    end
-    io.write("\n")
+    printArray(a)
     insertionSort(a, comp)
-    for j = 1,#a do
-        io.write(a[j], " ")
-    end
-    io.write( "\n")
+    printArray(a)
 
 end
 
