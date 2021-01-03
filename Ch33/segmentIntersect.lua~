@@ -1,0 +1,13 @@
+-- lua implementation of the Segments-Intersect
+-- algorithm in the book
+
+point={x=0,y=0}
+
+function point.new(x,y)
+  p=
+
+--auxiliary procedure used by the main algorithm
+-- implements the cross-product method
+function direction(pi,pj,pk)
+  function crossprod(p,q)
+    return p.x*q.y - p.y*q.1
