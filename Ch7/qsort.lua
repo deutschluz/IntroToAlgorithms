@@ -10,7 +10,7 @@ function partition(t,left,right)
   local x=t[right]
   local i=left-1
   for j=p,right-1 do
-    if t[j]<=x
+    if t[j]<=x then
       i=i+1
       swap(t,i,j)
     end
@@ -25,8 +25,8 @@ function qsort(t,left,right)
     local q=partition(t,left,pivot)
     qsort(t,left,q-1)
     qsort(t,q+1,right)
+  end
 end
-
 function printTab(t)
   for i=1,#t do
     io.write(t[i]," ")
@@ -41,4 +41,5 @@ function main()
   qsort(l,1,#l-1)
   printTab(l)
 end
+
 main()
