@@ -1,28 +1,32 @@
+dbg= require "debugger"
 function swap(t,i,j)
   local temp=t[i]
   t[i]=t[j]
   t[j]=temp
 end
 --function comp(i,j)
-  
 
-
-function qsort(t,left,right)
-  local last;
-  if left>=right then
-    return
-  end
-  swap(t,left,(left+right)/2)
-  last = left;
-  for i=left+1,right do
-    if t[i]<t[left] then
-      swap(t,last+1,i)
+function partition(t,left,right)
+  local x=t[right]
+  local i=left-1
+  for j=p,right-1 do
+    if t[j]<=x
+      i=i+1
+      swap(t,i,j)
     end
   end
-  swap(t,left,last)
-  qsort(t,left,last-1)
-  qsort(t,last+1,right)
+  swap(t,i+1,r)
+  return i+1
 end
+
+function qsort(t,left,right)
+--  dbg()
+  if left < right then
+    local q=partition(t,left,pivot)
+    qsort(t,left,q-1)
+    qsort(t,q+1,right)
+end
+
 function printTab(t)
   for i=1,#t do
     io.write(t[i]," ")
