@@ -1,7 +1,7 @@
 dbg=require("debugger")
 
-function arrayInit(Arr)
-  for i in ipairs(Arr) do
+function arrayInit(Arr,lim)
+  for i=1,lim do
     Arr[i]=0
   end
   return Arr
@@ -12,9 +12,9 @@ function merge(Arr,low,mid,hi)
   local Leftlim = mid - low + 1
   local Rightlim = hi - mid
   local Left={}
-  Left=arrayInit(Left)
+  Left=arrayInit(Left,Leftlim)
   local Right = {}
-  Right=arrayInit(Right)
+  Right=arrayInit(Right,RIghtlim)
   for i = 1,Leftlim do
     Left[i]=Arr[low + i -1]
   end
