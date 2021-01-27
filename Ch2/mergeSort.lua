@@ -20,22 +20,25 @@ end
 
 
 function mergeSort(list)
-  dbg()
+--  dbg()
   firstHalf={}
+  secondHalf={}
   if #list > 1 then
     arrayCopy(list, firstHalf, (#list)/2)
     mergeSort(firstHalf)
 
 --merge sort the second half
-
+    
     secondHalfLength=#list - (#list)/2
     arrayCopy(list, secondHalf, secondHalfLength)
     mergeSort(secondHalf)
-    merge(firstHalf, secondHalf, list)
+    merge(list,firstHalf,secondHalf)
   end
+  return
 end
 
-function merge(list1,list2,temp) 
+function merge(list1,list2,temp)
+  temp=temp or {}
   local current1 = 1 --current index in list1
   local current2 = 1 --current index in list2
   local current3 = 1 --current index in temp
