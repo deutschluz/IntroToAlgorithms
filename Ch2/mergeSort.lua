@@ -12,27 +12,26 @@ end
 --controls how much of A1 to copy to A2
 function arrayCopy(A1,A2,lim)
   lim=lim or #A1
-  for i,v in ipairs(A1) do
-    table.insert(A2,v)
+  for i=1,lim do
+    table.insert(A2,A1[i])
   end
 end
 
 
--- public static void mergeSort(int[] list) {
+
 function mergeSort(list)
----  if (list.length >1) {
-   if #list > 1 then
---	 int[] firstHalf = new int[list.length/2]
-   firstHalf={}
-   arrayCopy(list, firstHalf, (#list)/2)
-   mergeSort(firstHalf)
---//merge sort the second half
---int secondHalfLength = list.length - list.length/2
-   secondHalfLength=#list - (#list)/2
---int[] secondHalf = new int[secondHalfLength]
-   arrayCopy(list, secondHalf, secondHalfLength)
-   mergeSort(secondHalf)
-   merge(firstHalf, secondHalf, list)
+  dbg()
+  firstHalf={}
+  if #list > 1 then
+    arrayCopy(list, firstHalf, (#list)/2)
+    mergeSort(firstHalf)
+
+--merge sort the second half
+
+    secondHalfLength=#list - (#list)/2
+    arrayCopy(list, secondHalf, secondHalfLength)
+    mergeSort(secondHalf)
+    merge(firstHalf, secondHalf, list)
   end
 end
 
