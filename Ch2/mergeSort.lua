@@ -7,43 +7,61 @@ function arrayInit(Arr,lim)
   return Arr
 end
 
-
-function merge(Arr,low,mid,hi)
-  local Leftlim = mid - low + 1
-  local Rightlim = hi - mid
-  local Left={}
-  Left=arrayInit(Left,Leftlim)
-  local Right = {}
-  Right=arrayInit(Right,RIghtlim)
-  for i = 1,Leftlim do
-    Left[i]=Arr[low + i -1]
-  end
-  for j=1,Rightlim do
-    Right[j]=Arr[mid + j]
-  end
-  Left[Leftlim] = math.huge
-  Right[Rightlim] = math.huge
-  lefti=1
-  righti=1
-  for k=low,hi do
-    if Left[lefti] <= Right[righti] then
-      Arr[k] = Left[i]
-      lefti=lefti+1
-    else
-      Arr[k] = Right[righti]
-      righti=righti+1
-    end
+--copies contents of array A1 to A2
+--optional 3rd argument: lim
+--controls how much of A1 to copy to A2
+function arrayCopy(A1,A2,lim)
+  lim=lim or #A1
+  for i,v in ipairs(A1) do
+    table.insert(A2,v)
   end
 end
 
-function mergeSort(Arr,low,hi)
-  dbg()
-  if low < hi then
-    mid = math.floor((low + hi)*0.5)
-    mergeSort(Arr,low,mid)
-    mergeSort(Arr,mid+1,hi)
-    merge(Arr,low,mid,hi)
+
+-- public static void mergeSort(int[] list) {
+function mergeSort(list)
+---  if (list.length >1) {
+   if #list > 1 then
+--	 int[] firstHalf = new int[list.length/2]
+   firstHalf={}
+   arrayCopy(list, firstHalf, (#list)/2)
+   mergeSort(firstHalf)
+--//merge sort the second half
+--int secondHalfLength = list.length - list.length/2
+   secondHalfLength=#list - (#list)/2
+--int[] secondHalf = new int[secondHalfLength]
+   arrayCopy(list, secondHalf, secondHalfLength)
+   mergeSort(secondHalf)
+   merge(firstHalf, secondHalf, list)
   end
+end
+
+function merge(list1,list2,temp) 
+  local current1 = 1 --current index in list1
+  local current2 = 1 --current index in list2
+  local current3 = 1 --current index in temp
+		
+  while current1< #list1 and current2 < #list2 do
+    if  list1[current1] < list2[current2] then
+	temp[current3] = list1[current1];
+	current3=current3+1
+	current1=current1+1
+    else
+        temp[current3]=list2[current2];
+	current3=current3+1
+	current2=current2+1
+    end
+  end
+  while current1 < #list1 do
+	temp[current3] = list1[current1]
+	current3=current3+1
+	current1=current1+1
+  end
+  while current2 < #list2 do
+	temp[current3] = list2[current2];
+        current3=current3+1
+	current2=current2+1
+  end	
 end
 
 function printArray(Arr)
@@ -52,10 +70,23 @@ function printArray(Arr)
   end
   io.write("\n")
 end
+
+
+
 function main()
-  a={7,3,8,10,21,2,1,4}
-  printArray(a)
-  mergeSort(a,1,#a)
-  printArray(a)
+   local list={350, 223, 445, -45, 56, 234, -99, 498, 428, -990, 56, 78, 88, -999};		
+   local s1 = "Before invoking the Merge Sort algorithm:\n";
+   local s2 = "After invoking the Merge Sort algorithm:\n";
+   local s3 = "Merge Sort runs in O(n lg n) time!\n";
+
+    print(s1)
+    printArray(list);
+    print("\n");
+    mergeSort(list);
+    print(s2);
+    printArray(list);
+    print("\n");
+    print(s3);
 end
+
 main()
